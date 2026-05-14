@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 // ─── DONNÉES INITIALES ────────────────────────────────────────────────────────
 const PRODUITS_INIT = [
-  { id: "yuki", nom: "Yuki Cocktail", emoji: "🍹", prix: 500, couleur: "#22c55e" },
+  { id: "yuki", nom: "Yuki Cocktail", emoji: "🍹", prix: 300, couleur: "#22c55e" },
   { id: "youzou", nom: "Youzou", emoji: "🍋", prix: 300, couleur: "#eab308" },
   { id: "fanta_pomme", nom: "Fanta Pomme", emoji: "🟡", prix: 300, couleur: "#f97316" },
   { id: "fanta_fruit_rouge", nom: "Fanta Fruit Rouge", emoji: "🔴", prix: 300, couleur: "#ef4444" },
@@ -235,10 +235,7 @@ function LoginPage({ onLogin }) {
         <button style={styles.btnPrimary} onClick={handle} disabled={loading}>
           {loading ? "Connexion…" : "Se connecter →"}
         </button>
-        <div style={styles.loginHint}>
-          <p>Compte admin :</p>
-          <code>admin / admin123</code>
-        </div>
+
       </div>
     </div>
   );
