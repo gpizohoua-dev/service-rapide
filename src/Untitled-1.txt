@@ -1,0 +1,3 @@
+{ id: "canette d'orangina", nom: "Canette D'orangina", emoji: "🫙", prix: 500, couleur: "#1d418a" },
+  { id: "canette de youzou", nom: "Canette De Youzou", emoji: "🫙", prix: 500, couleur: "#2ba663" },
+  { id: "canette de moka", nom: "Canette De Moka", emoji: "🫙", prix: 500, couleur: "#717d42" },
