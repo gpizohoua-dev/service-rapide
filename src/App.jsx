@@ -910,116 +910,165 @@ function StatCard({ label, val, icon, color }) {
 }
 
 // ─── STYLES ───────────────────────────────────────────────────────────────────
-const C = { bg: "#0a0f1a", surface: "#111827", card: "#1a2235", border: "#1e2d45", accent: "#f59e0b", text: "#f1f5f9", muted: "#64748b", green: "#22c55e", red: "#ef4444" };
+const C = {
+  bg: "#f0f4ff",
+  surface: "#ffffff",
+  card: "#f8faff",
+  border: "#e2e8f8",
+  accent: "#6c3ef4",
+  accent2: "#f4433a",
+  accent3: "#00c896",
+  text: "#1a1040",
+  muted: "#8892b0",
+  green: "#00c896",
+  red: "#f4433a",
+  yellow: "#ffb300",
+  sidebar: "#1a0a3c",
+};
 
 const styles = {
-  app: { minHeight: "100vh", background: C.bg, color: C.text, fontFamily: "'IBM Plex Mono', 'Courier New', monospace" },
-  notif: { position: "fixed", top: 20, right: 20, zIndex: 9999, padding: "12px 20px", borderRadius: 10, color: "#fff", fontWeight: 700, boxShadow: "0 4px 20px rgba(0,0,0,0.4)", fontSize: 14 },
-  loginWrap: { minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: `radial-gradient(ellipse at 60% 40%, #1a2a1a 0%, #0a0f1a 70%)` },
-  loginCard: { background: C.surface, border: `1px solid ${C.border}`, borderRadius: 16, padding: "48px 40px", width: 380, boxShadow: "0 24px 60px rgba(0,0,0,0.6)" },
-  logo: { display: "flex", alignItems: "center", gap: 10, marginBottom: 4 },
-  logoIcon: { fontSize: 28, filter: "drop-shadow(0 0 10px #f59e0b)" },
-  logoText: { fontSize: 20, fontWeight: 800, letterSpacing: 3, color: C.accent },
-  loginSub: { color: C.muted, fontSize: 13, marginBottom: 28, marginTop: 4 },
-  field: { marginBottom: 16 },
-  label: { display: "block", fontSize: 12, color: C.muted, marginBottom: 6, textTransform: "uppercase", letterSpacing: 1 },
-  input: { width: "100%", background: C.card, border: `1px solid ${C.border}`, borderRadius: 8, padding: "10px 14px", color: C.text, fontSize: 14, outline: "none", boxSizing: "border-box", fontFamily: "inherit" },
-  errMsg: { color: C.red, fontSize: 13, marginBottom: 8 },
-  btnPrimary: { width: "100%", background: C.accent, color: "#0a0f1a", border: "none", borderRadius: 8, padding: "12px 20px", fontWeight: 800, fontSize: 15, cursor: "pointer", letterSpacing: 1, transition: "opacity .2s", fontFamily: "inherit" },
-  btnDanger: { background: "#ef4444", color: "#fff", border: "none", borderRadius: 8, padding: "8px 16px", fontWeight: 700, cursor: "pointer", fontFamily: "inherit" },
-  btnSecondary: { background: C.card, color: C.text, border: `1px solid ${C.border}`, borderRadius: 8, padding: "8px 16px", fontWeight: 700, cursor: "pointer", fontFamily: "inherit" },
-  btnAdd: { background: C.card, color: C.accent, border: `1px solid ${C.accent}`, borderRadius: 8, padding: "8px 16px", fontWeight: 700, cursor: "pointer", fontSize: 13, fontFamily: "inherit" },
-  loginHint: { marginTop: 24, padding: "12px 16px", background: C.card, borderRadius: 8, fontSize: 12, color: C.muted, textAlign: "center", lineHeight: 2 },
+  app: { minHeight: "100vh", background: C.bg, color: C.text, fontFamily: "'Nunito', 'Segoe UI', sans-serif" },
+  notif: { position: "fixed", top: 20, right: 20, zIndex: 9999, padding: "14px 22px", borderRadius: 14, color: "#fff", fontWeight: 800, boxShadow: "0 8px 32px rgba(108,62,244,0.25)", fontSize: 14, letterSpacing: 0.3 },
+
+  // LOGIN
+  loginWrap: { minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg, #1a0a3c 0%, #2d1b69 40%, #0f3460 100%)", position: "relative", overflow: "hidden" },
+  loginCard: { background: "rgba(255,255,255,0.08)", backdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: 24, padding: "52px 44px", width: 400, boxShadow: "0 32px 80px rgba(0,0,0,0.5)", position: "relative", zIndex: 1 },
+  logo: { display: "flex", alignItems: "center", gap: 12, marginBottom: 6 },
+  logoIcon: { fontSize: 32, filter: "drop-shadow(0 0 16px #ffb300)" },
+  logoText: { fontSize: 22, fontWeight: 900, letterSpacing: 4, background: "linear-gradient(90deg, #ffb300, #ff6b6b, #c471ed)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" },
+  loginSub: { color: "rgba(255,255,255,0.5)", fontSize: 13, marginBottom: 32, marginTop: 4 },
+  field: { marginBottom: 18 },
+  label: { display: "block", fontSize: 11, color: "rgba(255,255,255,0.6)", marginBottom: 7, textTransform: "uppercase", letterSpacing: 1.5, fontWeight: 700 },
+  input: { width: "100%", background: "rgba(255,255,255,0.1)", border: "1.5px solid rgba(255,255,255,0.2)", borderRadius: 12, padding: "12px 16px", color: "#fff", fontSize: 14, outline: "none", boxSizing: "border-box", fontFamily: "inherit", transition: "border .2s" },
+  errMsg: { color: "#ff6b6b", fontSize: 13, marginBottom: 8, fontWeight: 600 },
+  btnPrimary: { width: "100%", background: "linear-gradient(135deg, #6c3ef4, #c471ed)", color: "#fff", border: "none", borderRadius: 12, padding: "14px 20px", fontWeight: 800, fontSize: 15, cursor: "pointer", letterSpacing: 0.5, transition: "transform .15s, box-shadow .15s", boxShadow: "0 8px 24px rgba(108,62,244,0.4)", fontFamily: "inherit" },
+  btnDanger: { background: "linear-gradient(135deg, #f4433a, #ff6b6b)", color: "#fff", border: "none", borderRadius: 10, padding: "9px 18px", fontWeight: 800, cursor: "pointer", fontFamily: "inherit", boxShadow: "0 4px 12px rgba(244,67,58,0.3)" },
+  btnSecondary: { background: C.card, color: C.text, border: `1.5px solid ${C.border}`, borderRadius: 10, padding: "9px 18px", fontWeight: 700, cursor: "pointer", fontFamily: "inherit" },
+  btnAdd: { background: "linear-gradient(135deg, #6c3ef4, #c471ed)", color: "#fff", border: "none", borderRadius: 10, padding: "9px 18px", fontWeight: 800, cursor: "pointer", fontSize: 13, fontFamily: "inherit", boxShadow: "0 4px 14px rgba(108,62,244,0.3)" },
+  loginHint: { marginTop: 24, padding: "12px 16px", background: "rgba(255,255,255,0.08)", borderRadius: 10, fontSize: 12, color: "rgba(255,255,255,0.5)", textAlign: "center", lineHeight: 2 },
+
+  // LAYOUT
   layout: { display: "flex", minHeight: "100vh" },
-  sidebar: { width: 220, background: C.surface, borderRight: `1px solid ${C.border}`, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: 20, flexShrink: 0, position: "sticky", top: 0, height: "100vh", overflowY: "auto" },
-  sideTop: { display: "flex", flexDirection: "column", gap: 20 },
-  sideLogoWrap: { display: "flex", alignItems: "center", gap: 8 },
-  sideLogoIcon: { fontSize: 20 },
-  sideLogoTitle: { fontSize: 11, fontWeight: 800, letterSpacing: 2, color: C.accent },
-  sideEntrepot: { fontSize: 10, color: C.muted, marginTop: 2 },
-  sideUser: { display: "flex", alignItems: "center", gap: 10, background: C.card, borderRadius: 10, padding: "10px 12px" },
-  avatar: { width: 34, height: 34, borderRadius: "50%", background: C.accent, color: "#0a0f1a", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 16, flexShrink: 0 },
-  userName: { fontSize: 13, fontWeight: 700 },
-  userRole: { fontSize: 11, color: C.muted },
-  navBtn: { display: "flex", alignItems: "center", gap: 8, width: "100%", background: "none", border: "none", color: C.muted, padding: "9px 12px", borderRadius: 8, cursor: "pointer", fontSize: 13, textAlign: "left", transition: "all .15s", fontFamily: "inherit" },
-  navBtnActive: { background: C.card, color: C.text, borderLeft: `2px solid ${C.accent}` },
-  logoutBtn: { background: "none", border: `1px solid ${C.border}`, color: C.muted, borderRadius: 8, padding: "8px 12px", cursor: "pointer", fontSize: 12, fontFamily: "inherit", width: "100%" },
-  resetBtn: { background: "none", border: `1px solid #ef4444`, color: "#ef4444", borderRadius: 8, padding: "8px 12px", cursor: "pointer", fontSize: 12, fontFamily: "inherit", width: "100%" },
-  alertBadge: { background: "#ef4444", color: "#fff", borderRadius: 10, fontSize: 10, fontWeight: 800, padding: "1px 6px", minWidth: 18, textAlign: "center" },
-  alertBanniere: { background: "#0f1c2e", border: "1px solid #1e3a5f", borderRadius: 12, padding: "14px 18px", marginBottom: 20 },
+  sidebar: { width: 230, background: "linear-gradient(180deg, #1a0a3c 0%, #0f3460 100%)", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "24px 16px", flexShrink: 0, position: "sticky", top: 0, height: "100vh", overflowY: "auto", boxShadow: "4px 0 24px rgba(26,10,60,0.15)" },
+  sideTop: { display: "flex", flexDirection: "column", gap: 22 },
+  sideLogoWrap: { display: "flex", alignItems: "center", gap: 10, padding: "0 4px" },
+  sideLogoIcon: { fontSize: 22, filter: "drop-shadow(0 0 8px #ffb300)" },
+  sideLogoTitle: { fontSize: 11, fontWeight: 900, letterSpacing: 3, background: "linear-gradient(90deg, #ffb300, #ff6b6b)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" },
+  sideEntrepot: { fontSize: 10, color: "rgba(255,255,255,0.4)", marginTop: 2 },
+  sideUser: { display: "flex", alignItems: "center", gap: 10, background: "rgba(255,255,255,0.08)", borderRadius: 14, padding: "12px 14px", border: "1px solid rgba(255,255,255,0.1)" },
+  avatar: { width: 36, height: 36, borderRadius: "50%", background: "linear-gradient(135deg, #ffb300, #ff6b6b)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 900, fontSize: 16, flexShrink: 0, boxShadow: "0 4px 12px rgba(255,179,0,0.4)" },
+  userName: { fontSize: 13, fontWeight: 800, color: "#fff" },
+  userRole: { fontSize: 10, color: "rgba(255,255,255,0.45)", marginTop: 1 },
+  navBtn: { display: "flex", alignItems: "center", gap: 10, width: "100%", background: "none", border: "none", color: "rgba(255,255,255,0.5)", padding: "10px 14px", borderRadius: 12, cursor: "pointer", fontSize: 13, fontWeight: 600, textAlign: "left", transition: "all .18s", fontFamily: "inherit" },
+  navBtnActive: { background: "linear-gradient(135deg, rgba(108,62,244,0.5), rgba(196,113,237,0.3))", color: "#fff", borderLeft: "3px solid #c471ed", fontWeight: 800 },
+  logoutBtn: { background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.45)", borderRadius: 10, padding: "9px 12px", cursor: "pointer", fontSize: 12, fontFamily: "inherit", width: "100%", fontWeight: 600 },
+  resetBtn: { background: "rgba(244,67,58,0.1)", border: "1px solid rgba(244,67,58,0.4)", color: "#ff6b6b", borderRadius: 10, padding: "9px 12px", cursor: "pointer", fontSize: 12, fontFamily: "inherit", width: "100%", fontWeight: 700 },
+
+  // ALERT BADGE
+  alertBadge: { background: "linear-gradient(135deg, #f4433a, #ff6b6b)", color: "#fff", borderRadius: 10, fontSize: 10, fontWeight: 800, padding: "2px 7px", minWidth: 18, textAlign: "center", boxShadow: "0 2px 8px rgba(244,67,58,0.4)" },
+  alertBanniere: { background: "linear-gradient(135deg, #fff8e1, #fff3e0)", border: "1.5px solid #ffcc02", borderRadius: 16, padding: "16px 20px", marginBottom: 22, boxShadow: "0 4px 20px rgba(255,179,0,0.15)" },
   alertBanniereHeader: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 },
-  alertBanniereTitle: { fontSize: 13, fontWeight: 800, color: "#f59e0b" },
-  alertBanniereHint: { fontWeight: 400, color: "#64748b", fontSize: 12 },
-  alertFermer: { background: "none", border: "none", color: "#64748b", cursor: "pointer", fontSize: 16, fontFamily: "inherit" },
+  alertBanniereTitle: { fontSize: 13, fontWeight: 800, color: "#b45309" },
+  alertBanniereHint: { fontWeight: 400, color: "#92400e", fontSize: 12 },
+  alertFermer: { background: "none", border: "none", color: "#b45309", cursor: "pointer", fontSize: 18, fontFamily: "inherit" },
   alertGrid: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: 8 },
-  alertItem: { border: "1px solid", borderRadius: 8, padding: "8px 12px", display: "flex", flexDirection: "column", gap: 2 },
+  alertItem: { border: "1.5px solid", borderRadius: 10, padding: "10px 14px", display: "flex", flexDirection: "column", gap: 3, background: "#fff" },
   alertNiveau: { fontSize: 10, fontWeight: 800, letterSpacing: 1, textTransform: "uppercase" },
-  alertProd: { fontSize: 12, fontWeight: 700, color: "#f1f5f9" },
-  alertEntrepot: { fontSize: 11, color: "#64748b" },
+  alertProd: { fontSize: 12, fontWeight: 700, color: C.text },
+  alertEntrepot: { fontSize: 11, color: C.muted },
   alertQte: { fontSize: 13, fontWeight: 800, marginTop: 2 },
-  alertItemInline: { border: "1px solid", borderRadius: 8, padding: "8px 12px", fontSize: 12, fontWeight: 700, color: "#f1f5f9", marginBottom: 12 },
-  main: { flex: 1, padding: 28, overflowY: "auto" },
-  header: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 28, flexWrap: "wrap", gap: 12 },
-  headerTitle: { fontSize: 22, fontWeight: 800, margin: 0, letterSpacing: 1 },
-  headerRight: { display: "flex", alignItems: "center", gap: 16 },
-  caCard: { background: C.surface, border: `1px solid ${C.border}`, borderRadius: 10, padding: "8px 16px", textAlign: "right" },
-  caLabel: { display: "block", fontSize: 10, color: C.muted, letterSpacing: 1 },
-  caVal: { fontSize: 16, fontWeight: 800, color: C.green },
-  clock: { fontSize: 18, fontWeight: 800, color: C.accent, fontVariantNumeric: "tabular-nums" },
+  alertItemInline: { border: "1.5px solid", borderRadius: 10, padding: "10px 14px", fontSize: 12, fontWeight: 700, color: C.text, marginBottom: 14, background: "#fff" },
+
+  // MAIN
+  main: { flex: 1, padding: "32px 36px", overflowY: "auto", background: "linear-gradient(160deg, #f0f4ff 0%, #faf5ff 50%, #f0fff8 100%)" },
+  header: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 30, flexWrap: "wrap", gap: 12 },
+  headerTitle: { fontSize: 24, fontWeight: 900, margin: 0, letterSpacing: 0.5, background: "linear-gradient(135deg, #1a0a3c, #6c3ef4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" },
+  headerRight: { display: "flex", alignItems: "center", gap: 14 },
+  caCard: { background: "linear-gradient(135deg, #6c3ef4, #c471ed)", borderRadius: 14, padding: "10px 20px", textAlign: "right", boxShadow: "0 8px 24px rgba(108,62,244,0.3)" },
+  caLabel: { display: "block", fontSize: 10, color: "rgba(255,255,255,0.7)", letterSpacing: 1, fontWeight: 700 },
+  caVal: { fontSize: 17, fontWeight: 900, color: "#fff" },
+  clock: { fontSize: 18, fontWeight: 900, background: "linear-gradient(135deg, #ffb300, #ff6b6b)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", fontVariantNumeric: "tabular-nums" },
+
+  // STATS
   statRow: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 16, marginBottom: 28 },
-  statCard: { background: C.surface, border: `1px solid ${C.border}`, borderRadius: 12, padding: "20px 18px" },
-  statIcon: { fontSize: 22, marginBottom: 8 },
-  statVal: { fontSize: 20, fontWeight: 800, marginBottom: 4 },
-  statLabel: { fontSize: 12, color: C.muted },
-  formWrap: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, alignItems: "start" },
-  formCard: { background: C.surface, border: `1px solid ${C.border}`, borderRadius: 12, padding: 24, marginBottom: 24 },
+  statCard: { background: "#fff", border: `1.5px solid ${C.border}`, borderRadius: 16, padding: "22px 20px", boxShadow: "0 4px 20px rgba(108,62,244,0.07)", transition: "transform .2s" },
+  statIcon: { fontSize: 24, marginBottom: 10 },
+  statVal: { fontSize: 21, fontWeight: 900, marginBottom: 4, color: C.text },
+  statLabel: { fontSize: 12, color: C.muted, fontWeight: 600 },
+
+  // FORM
+  formWrap: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 26, alignItems: "start" },
+  formCard: { background: "#fff", border: `1.5px solid ${C.border}`, borderRadius: 18, padding: 26, marginBottom: 24, boxShadow: "0 4px 24px rgba(108,62,244,0.07)" },
   formGrid: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 },
-  sectionTitle: { fontSize: 15, fontWeight: 700, marginBottom: 16, color: C.accent, letterSpacing: 1, marginTop: 0 },
-  hint: { fontSize: 11, color: C.muted, marginTop: 4, display: "block" },
-  totalBox: { background: C.card, borderRadius: 10, padding: "14px 18px", margin: "12px 0", borderLeft: `3px solid ${C.accent}` },
-  totalRow: { display: "flex", justifyContent: "space-between", fontSize: 13, padding: "4px 0", color: C.muted },
-  totalFinal: { fontSize: 16, color: C.text, fontWeight: 800, marginTop: 6, paddingTop: 8, borderTop: `1px solid ${C.border}` },
+  sectionTitle: { fontSize: 15, fontWeight: 800, marginBottom: 18, background: "linear-gradient(135deg, #6c3ef4, #c471ed)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: 0.5, marginTop: 0 },
+  hint: { fontSize: 11, color: C.muted, marginTop: 5, display: "block", fontWeight: 600 },
+  totalBox: { background: "linear-gradient(135deg, #f8f0ff, #fce4ff)", borderRadius: 12, padding: "16px 20px", margin: "14px 0", borderLeft: "4px solid #c471ed" },
+  totalRow: { display: "flex", justifyContent: "space-between", fontSize: 13, padding: "5px 0", color: C.muted, fontWeight: 600 },
+  totalFinal: { fontSize: 17, color: C.text, fontWeight: 900, marginTop: 8, paddingTop: 10, borderTop: `1.5px solid #e9d5ff` },
+
+  // PRODUITS
   prodGrid: { display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 12 },
-  prodCard: { background: C.surface, border: `2px solid`, borderRadius: 12, padding: "14px 12px", cursor: "pointer", textAlign: "center", transition: "transform .15s", fontFamily: "inherit" },
-  prodEmoji: { fontSize: 26, marginBottom: 4 },
-  prodNom: { fontSize: 12, fontWeight: 700, marginBottom: 4 },
-  prodPrix: { fontSize: 13, fontWeight: 800, marginBottom: 2 },
-  prodStock: { fontSize: 11, color: C.muted },
+  prodCard: { background: "#fff", border: `2px solid`, borderRadius: 16, padding: "16px 12px", cursor: "pointer", textAlign: "center", transition: "transform .18s, box-shadow .18s", fontFamily: "inherit", boxShadow: "0 4px 14px rgba(0,0,0,0.06)" },
+  prodEmoji: { fontSize: 28, marginBottom: 6 },
+  prodNom: { fontSize: 12, fontWeight: 800, marginBottom: 4, color: C.text },
+  prodPrix: { fontSize: 13, fontWeight: 900, marginBottom: 3 },
+  prodStock: { fontSize: 11, color: C.muted, fontWeight: 600 },
+
+  // TABLE
   stockTable: { overflowX: "auto" },
-  table: { width: "100%", borderCollapse: "collapse", background: C.surface, borderRadius: 12, overflow: "hidden" },
-  th: { background: C.card, padding: "10px 14px", fontSize: 11, color: C.muted, textAlign: "left", fontWeight: 700, letterSpacing: 1, textTransform: "uppercase" },
-  tr: { borderBottom: `1px solid ${C.border}` },
-  td: { padding: "10px 14px", fontSize: 13 },
-  badge: { display: "inline-block", padding: "2px 10px", borderRadius: 20, fontSize: 11, fontWeight: 700, color: "#fff" },
-  filtreRow: { display: "flex", gap: 8, marginBottom: 16 },
-  filtreBtn: { background: C.surface, border: `1px solid ${C.border}`, borderRadius: 8, padding: "6px 16px", color: C.muted, cursor: "pointer", fontSize: 12, fontFamily: "inherit" },
-  filtreBtnActive: { background: C.accent, color: "#0a0f1a", borderColor: C.accent, fontWeight: 700 },
-  empty: { color: C.muted, textAlign: "center", padding: 40, fontSize: 14 },
+  table: { width: "100%", borderCollapse: "collapse", background: "#fff", borderRadius: 16, overflow: "hidden", boxShadow: "0 4px 20px rgba(108,62,244,0.07)" },
+  th: { background: "linear-gradient(135deg, #f8f0ff, #fce4ff)", padding: "12px 16px", fontSize: 11, color: "#7c3aed", textAlign: "left", fontWeight: 800, letterSpacing: 1, textTransform: "uppercase" },
+  tr: { borderBottom: `1.5px solid ${C.border}` },
+  td: { padding: "11px 16px", fontSize: 13, fontWeight: 600 },
+  badge: { display: "inline-block", padding: "3px 12px", borderRadius: 20, fontSize: 11, fontWeight: 800, color: "#fff" },
+
+  // FILTRES
+  filtreRow: { display: "flex", gap: 8, marginBottom: 18 },
+  filtreBtn: { background: "#fff", border: `1.5px solid ${C.border}`, borderRadius: 10, padding: "7px 18px", color: C.muted, cursor: "pointer", fontSize: 12, fontFamily: "inherit", fontWeight: 700 },
+  filtreBtnActive: { background: "linear-gradient(135deg, #6c3ef4, #c471ed)", color: "#fff", border: "none", fontWeight: 800, boxShadow: "0 4px 14px rgba(108,62,244,0.35)" },
+  empty: { color: C.muted, textAlign: "center", padding: 48, fontSize: 14, fontWeight: 600 },
+
+  // ENTREPOTS & VENDEURS
   entrepotGrid: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 20, marginBottom: 24 },
-  entrepotCard: { background: C.surface, border: `1px solid ${C.border}`, borderRadius: 12, padding: 20 },
-  entrepotNom: { fontSize: 14, fontWeight: 800, marginBottom: 4 },
-  entrepotTotal: { fontSize: 24, fontWeight: 800, color: C.accent, marginBottom: 4 },
-  ruptureTag: { fontSize: 11, color: C.red, marginBottom: 8 },
-  miniStockRow: { display: "flex", justifyContent: "space-between", fontSize: 12, padding: "3px 0", borderBottom: `1px solid ${C.border}` },
-  entrepotLabel: { fontSize: 14, fontWeight: 700, color: C.accent, margin: "16px 0 8px" },
-  vendeurCard: { background: C.surface, border: `1px solid ${C.border}`, borderRadius: 12, padding: 20, textAlign: "center" },
-  vendeurAvatar: { width: 48, height: 48, borderRadius: "50%", background: C.accent, color: "#0a0f1a", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 22, margin: "0 auto 10px" },
-  vendeurNom: { fontSize: 16, fontWeight: 800 },
-  vendeurEntrepot: { fontSize: 12, color: C.muted, marginBottom: 4 },
-  vendeurCA: { fontSize: 20, fontWeight: 800, color: C.green, marginBottom: 2 },
-  vendeurVentes: { fontSize: 12, color: C.muted, marginBottom: 8 },
-  miniVenteRow: { display: "flex", justifyContent: "space-between", fontSize: 11, padding: "3px 0", borderBottom: `1px solid ${C.border}` },
-  modalOverlay: { position: "fixed", inset: 0, background: "rgba(0,0,0,0.7)", zIndex: 9999, display: "flex", alignItems: "center", justifyContent: "center" },
-  modalBox: { background: C.surface, border: `1px solid ${C.border}`, borderRadius: 16, padding: 28, width: 360, boxShadow: "0 20px 60px rgba(0,0,0,0.6)" },
-  modalTitle: { fontSize: 16, fontWeight: 800, color: C.accent, marginBottom: 12 },
+  entrepotCard: { background: "#fff", border: `1.5px solid ${C.border}`, borderRadius: 18, padding: 22, boxShadow: "0 4px 20px rgba(108,62,244,0.07)", transition: "transform .2s" },
+  entrepotNom: { fontSize: 15, fontWeight: 800, marginBottom: 6, color: C.text },
+  entrepotTotal: { fontSize: 26, fontWeight: 900, background: "linear-gradient(135deg, #6c3ef4, #c471ed)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", marginBottom: 6 },
+  ruptureTag: { fontSize: 11, color: C.red, marginBottom: 8, fontWeight: 700 },
+  miniStockRow: { display: "flex", justifyContent: "space-between", fontSize: 12, padding: "4px 0", borderBottom: `1px solid ${C.border}`, fontWeight: 600 },
+  entrepotLabel: { fontSize: 14, fontWeight: 800, background: "linear-gradient(135deg, #6c3ef4, #c471ed)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", margin: "18px 0 10px" },
+  vendeurCard: { background: "#fff", border: `1.5px solid ${C.border}`, borderRadius: 18, padding: 22, textAlign: "center", boxShadow: "0 4px 20px rgba(108,62,244,0.07)" },
+  vendeurAvatar: { width: 52, height: 52, borderRadius: "50%", background: "linear-gradient(135deg, #ffb300, #ff6b6b)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 900, fontSize: 24, margin: "0 auto 12px", boxShadow: "0 6px 18px rgba(255,107,107,0.35)" },
+  vendeurNom: { fontSize: 16, fontWeight: 900, color: C.text },
+  vendeurEntrepot: { fontSize: 12, color: C.muted, marginBottom: 6, fontWeight: 600 },
+  vendeurCA: { fontSize: 22, fontWeight: 900, background: "linear-gradient(135deg, #00c896, #00a878)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", marginBottom: 3 },
+  vendeurVentes: { fontSize: 12, color: C.muted, marginBottom: 10, fontWeight: 600 },
+  miniVenteRow: { display: "flex", justifyContent: "space-between", fontSize: 11, padding: "4px 0", borderBottom: `1px solid ${C.border}`, fontWeight: 600 },
+
+  // MODAL
+  modalOverlay: { position: "fixed", inset: 0, background: "rgba(26,10,60,0.6)", backdropFilter: "blur(6px)", zIndex: 9999, display: "flex", alignItems: "center", justifyContent: "center" },
+  modalBox: { background: "#fff", borderRadius: 20, padding: 32, width: 380, boxShadow: "0 32px 80px rgba(108,62,244,0.25)" },
+  modalTitle: { fontSize: 17, fontWeight: 900, background: "linear-gradient(135deg, #6c3ef4, #c471ed)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", marginBottom: 14 },
 };
 
 const css = `
-  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700;800&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
   * { box-sizing: border-box; }
   body { margin: 0; }
-  select option { background: #1a2235; color: #f1f5f9; }
-  button:hover { filter: brightness(1.1); }
-  input:focus, select:focus { outline: 1px solid #f59e0b; border-color: #f59e0b; }
-  ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: #0a0f1a; } ::-webkit-scrollbar-thumb { background: #1e2d45; border-radius: 3px; }
+  select option { background: #fff; color: #1a1040; }
+  button:hover { filter: brightness(1.06); transform: translateY(-1px); }
+  button:active { transform: translateY(0); }
+  input:focus, select:focus { outline: none; border-color: #6c3ef4 !important; box-shadow: 0 0 0 3px rgba(108,62,244,0.15); }
+  input::placeholder { color: rgba(255,255,255,0.35); }
+  .light-input::placeholder { color: #8892b0 !important; }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #f0f4ff; }
+  ::-webkit-scrollbar-thumb { background: #c4b5fd; border-radius: 3px; }
+
+  /* Login background orbs */
+  .login-orb-1 { position: absolute; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(108,62,244,0.4), transparent 70%); top: -80px; right: -80px; animation: pulse 4s ease-in-out infinite; }
+  .login-orb-2 { position: absolute; width: 250px; height: 250px; border-radius: 50%; background: radial-gradient(circle, rgba(255,107,107,0.3), transparent 70%); bottom: -60px; left: -60px; animation: pulse 5s ease-in-out infinite reverse; }
+  @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.6; } 50% { transform: scale(1.1); opacity: 1; } }
+
+  /* Card hover effects */
+  [data-card]:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(108,62,244,0.15) !important; }
 `;
